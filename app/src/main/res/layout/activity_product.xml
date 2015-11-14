@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="mnidersoft.com.br.netshoes.controller.activity.ProductActivity"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:elevation="0dp"
+            android:theme="@style/CustomActionBar">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:theme="@style/CustomActionBar"
+                app:elevation="0dp"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/priceLayout"
+            android:layout_below="@+id/appbar">
+
+            <RelativeLayout
+                android:id="@+id/mainContent"
+                android:background="@color/white"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+                <LinearLayout
+                    android:id="@+id/dotsLayout"
+                    android:orientation="horizontal"
+                    android:background="@drawable/tabindicator_background"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/viewPager"/>
+
+                <TextView
+                    android:id="@+id/nameTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:layout_margin="20dip"
+                    android:textStyle="bold"
+                    android:singleLine="false"
+                    android:minLines="2"
+                    android:layout_below="@+id/dotsLayout"
+                    android:textColor="@color/colorPrimary"/>
+
+                <RelativeLayout
+                    android:id="@+id/dividerLayout"
+                    android:background="@color/darkGray"
+                    android:visibility="visible"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_below="@id/nameTextView"/>
+
+                <TextView
+                    android:id="@+id/descriptionTitleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_margin="20dip"
+                    android:layout_below="@+id/dividerLayout"
+                    android:text="@string/description"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/descriptionTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_marginLeft="20dip"
+                    android:layout_marginRight="20dip"
+                    android:layout_marginBottom="10dip"
+                    android:layout_below="@+id/descriptionTitleTextView"/>
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:visibility="visible"
+            android:indeterminateDrawable="@drawable/progress" >
+        </ProgressBar>
+
+        <RelativeLayout
+            android:id="@+id/priceLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:padding="10dip"
+            android:elevation="20dip"
+            android:background="@color/priceLayoutGray"
+            android:layout_alignParentBottom="true">
+
+            <TextView
+                android:id="@+id/percentTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/orange"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:paddingLeft="5dip"
+                android:paddingRight="5dip"
+                android:paddingTop="1dip"
+                android:paddingBottom="1dip"
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+            <TextView
+                android:id="@+id/originalPriceTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/percentTextView"
+                android:layout_alignTop="@+id/percentTextView"
+                android:layout_alignBottom="@+id/percentTextView"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_marginLeft="10dip"/>
+
+            <TextView
+                android:id="@+id/actualPriceTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_below="@+id/percentTextView"
+                android:textColor="@color/redOrange"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_anchor="@+id/priceLayout"
+        app:layout_anchorGravity="top|right"
+        app:backgroundTint="@color/redOrange"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@mipmap/ic_buy" />
+
+</android.support.design.widget.CoordinatorLayout>

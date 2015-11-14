@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardElevation="2sp"
+    android:layout_margin="5dip">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray">
+
+        <RelativeLayout
+            android:id="@+id/imageLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/customWhite">
+
+            <ImageView
+                android:id="@+id/contentImageView"
+                android:layout_centerHorizontal="true"
+                android:layout_width="410px"
+                android:layout_height="410px"
+                android:src="@mipmap/ic_placeholder"
+                android:scaleType="fitXY"/>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/badgeImageView"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_badge"/>
+
+        <TextView
+            android:id="@+id/badgeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/customWhite"
+            android:layout_alignLeft="@+id/badgeImageView"
+            android:layout_alignRight="@+id/badgeImageView"
+            android:layout_alignBottom="@+id/badgeImageView"
+            android:layout_alignTop="@+id/badgeImageView"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="bold"
+            android:layout_marginLeft="8dip"
+            android:layout_marginRight="8dip"
+            android:layout_marginTop="8dip"
+            android:layout_below="@+id/imageLayout"
+            android:minLines="2"
+            android:maxLines="2"
+            android:singleLine="false"/>
+
+        <TextView
+            android:id="@+id/originalPriceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_marginLeft="8dip"
+            android:layout_marginRight="8dip"
+            android:layout_marginTop="5dip"
+            android:layout_below="@+id/nameTextView"
+            android:singleLine="false"/>
+
+        <TextView
+            android:id="@+id/actualPriceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_marginLeft="8dip"
+            android:layout_marginRight="8dip"
+            android:layout_marginTop="5dip"
+            android:textStyle="bold"
+            android:layout_below="@+id/originalPriceTextView"
+            android:singleLine="false"/>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

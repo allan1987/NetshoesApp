@@ -1,0 +1,85 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+apply plugin: 'com.neenbedankt.android-apt'
+
+def SupportV = '23.0.1'
+def RetrofitV = '1.9.0'
+def DaggerV = '2.0.1'
+def AAV = '3.3.1'
+def JacksonV = '2.5.4'
+def GlideV = '3.6.0'
+def EventBusV = '2.4.0'
+def JUnitV = '4.12'
+def RobotiumV = '5.4.1'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "mnidersoft.com.br.netshoes"
+        minSdkVersion 13
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
+
+    apt {
+        arguments {
+            androidManifestFile variant.outputs[0].processResources.manifestFile
+            resourcePackageName "mnidersoft.com.br.netshoes"
+        }
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    testCompile "junit:junit:$JUnitV"
+
+    compile "com.android.support:design:$SupportV"
+    compile "com.android.support:appcompat-v7:$SupportV"
+    compile "com.android.support:recyclerview-v7:$SupportV"
+    compile "com.android.support:cardview-v7:$SupportV"
+
+    apt "org.androidannotations:androidannotations:$AAV"
+    compile "org.androidannotations:androidannotations-api:$AAV"
+
+    compile "com.squareup.retrofit:retrofit:$RetrofitV"
+    compile "com.squareup.retrofit:converter-jackson:$RetrofitV"
+
+    compile "com.google.dagger:dagger:$DaggerV"
+    apt "com.google.dagger:dagger-compiler:$DaggerV"
+
+    compile "com.fasterxml.jackson.core:jackson-core:$JacksonV"
+    compile "com.fasterxml.jackson.core:jackson-annotations:$JacksonV"
+    compile "com.fasterxml.jackson.core:jackson-databind:$JacksonV"
+
+    compile "de.greenrobot:eventbus:$EventBusV"
+
+    compile "com.github.bumptech.glide:glide:$GlideV"
+//    compile 'jp.wasabeef:glide-transformations:1.0.6@aar'
+    compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.2.3@aar'
+
+    androidTestCompile "com.jayway.android.robotium:robotium-solo:$RobotiumV"
+
+    provided 'javax.annotation:jsr250-api:1.0'
+}

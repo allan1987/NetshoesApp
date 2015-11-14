@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Netshoes</string>
+    <string name="action_exit">Sair</string>
+
+    <string name="productsWereFound">Mais de 60 produtos encontrados</string>
+
+    <string name="internetError">Sem conectividade. Por favor verifique o seu acesso à Internet</string>
+    <string name="offline">Sem conectividade com a internet. Por favor, verifique sua conexão.</string>
+    <string name="errorWasOcurred">Falha ao comunicar com o servidor. Por favor, tente novamente.</string>
+    <string name="title_activity_product">ProductActivity</string>
+    <string name="action_share">Compartilhar</string>
+
+    <string name="description">Descrição</string>
+    <string name="shareOffer">Compartilhar oferta usando:</string>
+
+</resources>
